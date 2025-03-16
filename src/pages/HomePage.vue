@@ -1,8 +1,75 @@
 <script setup lang="ts">
+import Typography from '@/shared/ui/Typography/Typography.vue';
 </script>
 
 <template>
   <main>
-    <div>123</div>
+    <Typography
+      tagName="p"
+      size="xs"
+    >123</Typography>
+    <Typography
+      tagName="p"
+      size="s"
+    >123</Typography>
+    <Typography
+      tagName="p"
+      size="m"
+    >123</Typography>
+    <Typography
+      tagName="p"
+      size="l"
+    >123</Typography>
+    <Typography
+      tagName="p"
+      size="xl"
+    >123</Typography>
+
+    <Typography
+      tagName="p"
+      size="xs"
+      bold
+    >123</Typography>
+    <Typography
+      tagName="p"
+      size="s"
+      bold
+    >123</Typography>
+    <Typography
+      tagName="p"
+      size="m"
+      bold
+    >123</Typography>
+    <Typography
+      tagName="p"
+      size="l"
+      bold
+    >123</Typography>
+    <Typography
+      tagName="p"
+      size="xl"
+      bold
+    >123</Typography>
+
+    <Typography
+      tagName="h5"
+      size="xs"
+    >123</Typography>
+    <Typography
+      tagName="h4"
+      size="s"
+    >123</Typography>
+    <Typography
+      tagName="h3"
+      size="m"
+    >123</Typography>
+    <Typography
+      tagName="h2"
+      size="l"
+    >123</Typography>
+    <Typography
+      tagName="h1"
+      size="xl"
+    >123</Typography>
   </main>
 </template>
