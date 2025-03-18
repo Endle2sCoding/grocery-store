@@ -1,8 +1,10 @@
 <script lang="ts" setup>
+import { AppSearch } from '@/features/AppSearch';
 import AppButton from '@/shared/ui/AppButton/AppButton.vue';
 import AppContainer from '@/shared/ui/AppContainer/AppContainer.vue';
 import AppIcon from '@/shared/ui/AppIcon/AppIcon.vue';
 import AppLogo from '@/shared/ui/AppLogo/AppLogo.vue';
+import { RouterLink } from 'vue-router';
 
 
 </script>
@@ -15,7 +17,6 @@ import AppLogo from '@/shared/ui/AppLogo/AppLogo.vue';
         withText
         bgColor="white"
       />
-
       <div class="header__catatlog">
         <AppButton
           color="secondary"
@@ -26,10 +27,17 @@ import AppLogo from '@/shared/ui/AppLogo/AppLogo.vue';
           </template>
           Каталог
         </AppButton>
+      </div>
+      <div class="header__search">
+        <AppSearch />
 
       </div>
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/about">About</RouterLink>
 
     </AppContainer>
+
+
   </header>
 </template>
 

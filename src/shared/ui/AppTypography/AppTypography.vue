@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 interface Props {
-  tagName: "p" | "h1" | "h2" | "h3" | "h4" | "h5";
+  tagName?: "p" | "span" | "h1" | "h2" | "h3" | "h4" | "h5";
   bold?: boolean;
   size?: "xs" | "s" | "m" | "l" | "xl";
 }
-defineProps<Props>()
+const { tagName = "p" } = defineProps<Props>()
 
 </script>
 
@@ -27,23 +27,23 @@ defineProps<Props>()
   font-weight: 700;
 }
 
-.size_xs {
+.typography.size_xs {
   font-size: 12px;
 }
 
-.size_s {
+.typography.size_s {
   font-size: 16px;
 }
 
-.size_m {
+.typography.size_m {
   font-size: 18px;
 }
 
-.size_l {
+.typography.size_l {
   font-size: 24px;
 }
 
-.size_xl {
+.typography.size_xl {
   font-size: 36px;
 }
 
@@ -76,23 +76,23 @@ defineProps<Props>()
 }
 
 @media screen and (max-width: 768px) {
-  .size_xs {
+  .typography.size_xs {
     font-size: 8px;
   }
 
-  .size_s {
+  .typography.size_s {
     font-size: 12px;
   }
 
-  .size_m {
+  .typography.size_m {
     font-size: 14px;
   }
 
-  .size_l {
+  .typography.size_l {
     font-size: 20px;
   }
 
-  .size_xl {
+  .typography.size_xl {
     font-size: 32px;
   }
 

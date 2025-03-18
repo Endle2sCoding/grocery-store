@@ -4,13 +4,13 @@ import AppTypography from '../AppTypography/AppTypography.vue';
 interface Props {
   color?: "primary" | "secondary" | "grayscale" | "error";
   decoration?: "default" | "outlined" | "none";
-  size?: "L" | "M" | "S";
+  size?: "l" | "m" | "s";
   disabled?: boolean;
 }
 const {
   color = "primary",
   decoration = "clear",
-  size = "M",
+  size = "m",
   disabled = false,
 } = defineProps<Props>();
 
@@ -19,7 +19,7 @@ const {
 <template>
   <button
     :class="[
-      'button',
+      'appButton',
       `size_${size}`,
       `decoration_${decoration}`,
       `color_${color}`
@@ -39,7 +39,7 @@ const {
 </template>
 
 <style scoped>
-.button {
+.appButton {
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -53,17 +53,17 @@ const {
   text-align: center;
 }
 
-.size_S {
+.appButton.size_s {
   padding: 8px;
   gap: 8px;
 }
 
-.size_M {
+.appButton.size_m {
   padding: 8px;
   gap: 8px;
 }
 
-.size_L {
+.appButton.size_l {
   padding: 16px;
   gap: 8px;
 }
