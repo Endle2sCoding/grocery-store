@@ -4,6 +4,7 @@ import AppButton from '@/shared/ui/AppButton/AppButton.vue';
 import AppContainer from '@/shared/ui/AppContainer/AppContainer.vue';
 import AppIcon from '@/shared/ui/AppIcon/AppIcon.vue';
 import AppLogo from '@/shared/ui/AppLogo/AppLogo.vue';
+import { Nav } from '@/widgets/Nav';
 import { RouterLink } from 'vue-router';
 
 
@@ -11,12 +12,15 @@ import { RouterLink } from 'vue-router';
 <template>
   <header class="header">
     <AppContainer class="container">
-      <AppLogo
-        orientation="horizontal"
-        colorful
-        withText
-        bgColor="white"
-      />
+      <RouterLink to="/">
+        <AppLogo
+          orientation="horizontal"
+          colorful
+          withText
+          bgColor="white"
+        />
+      </RouterLink>
+
       <div class="header__catatlog">
         <AppButton
           color="secondary"
@@ -28,12 +32,12 @@ import { RouterLink } from 'vue-router';
           Каталог
         </AppButton>
       </div>
+
       <div class="header__search">
         <AppSearch />
-
       </div>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
+
+      <Nav />
 
     </AppContainer>
 
@@ -47,6 +51,7 @@ import { RouterLink } from 'vue-router';
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
   background: var(--main-surface);
   box-shadow: var(--shadow-default-s);
 }

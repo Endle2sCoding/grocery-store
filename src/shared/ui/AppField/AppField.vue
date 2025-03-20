@@ -7,6 +7,7 @@ interface Props {
   placeholder?: string;
 
   onChange: (value: string) => void;
+  onSubmit: () => void;
 }
 // interface Emits {
 //   onChange: (value: string) => void;
@@ -35,11 +36,13 @@ const slots = useSlots();
       <div
         v-if="slots.leftIcon"
         class="field__left-icon"
+        @click="onSubmit"
       >
         <slot name="leftIcon"></slot>
       </div>
       <input
         @input="(e: Event) => onChange?.((e.target as HTMLInputElement).value)"
+        @keyup.enter="onSubmit"
         :disabled="disabled"
         :class="['field__input', `size_${size}`]"
         :placeholder="placeholder"
@@ -48,6 +51,7 @@ const slots = useSlots();
       <div
         v-if="slots.rightIcon"
         class="field__right-icon"
+        @click="onSubmit"
       >
         <slot name="rightIcon"></slot>
       </div>
@@ -67,6 +71,7 @@ const slots = useSlots();
 .field__left-icon,
 .field__right-icon {
   position: absolute;
+  cursor: pointer;
 }
 
 

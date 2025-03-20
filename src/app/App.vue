@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Header } from '@/widgeets/Header';
+import { Header } from '@/layoutSections/Header';
 
 
 </script>
