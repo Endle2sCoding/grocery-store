@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { useSlots } from 'vue';
 import AppTypography from '../AppTypography/AppTypography.vue';
 
 interface Props {
@@ -7,9 +8,10 @@ interface Props {
   size?: "l" | "m" | "s";
   disabled?: boolean;
 }
+const slots = useSlots();
 const {
   color = "primary",
-  decoration = "clear",
+  decoration = "primary",
   size = "m",
   disabled = false,
 } = defineProps<Props>();
@@ -28,6 +30,7 @@ const {
   >
     <slot name="leftIcon"></slot>
     <AppTypography
+      v-if="slots.default"
       class="button_text"
       size="s"
       tagName="p"
@@ -71,5 +74,14 @@ const {
 .color_secondary {
   background: var(--main-secondary);
   color: var(--main-on-secondary)
+}
+
+.appButton.decoration_none {
+  background-color: unset;
+  border-color: unset;
+}
+
+.appButton.decoration_none:deep(path) {
+  fill: var(--main-on-surface)
 }
 </style>

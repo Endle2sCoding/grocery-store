@@ -6,8 +6,8 @@ import { RouterLink } from 'vue-router';
 
 const navItems = reactive([
   { label: "Изюранное", icon: "favorites", count: 0, link: "/favorites" },
-  { label: "Заказы", icon: "orders", count: 0, link: "/orders" },
-  { label: "Корзина", icon: "cart", count: 0, link: "/cart" },
+  { label: "Заказы", icon: "orders", count: 0, link: "/favorites" },
+  { label: "Корзина", icon: "cart", count: 0, link: "/favorites" },
 ]);
 </script>
 <template>
@@ -18,12 +18,12 @@ const navItems = reactive([
         v-for="item in navItems"
       >
         <RouterLink
-          :to="item.link"
+          :to="item.link "
           class="nav__link"
         >
           <AppIcon
             class="nav__link-icon"
-            :type="item.icon"
+            :type="`${item.icon}`"
           />
           <AppTypography
             size="xs"
