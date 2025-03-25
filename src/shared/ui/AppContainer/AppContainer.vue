@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 </script>
 <template>
-  <div class="container">
+  <div class="app-container">
     <slot></slot>
   </div>
 </template>
 <style scoped>
-.container {
+.app-container {
   width: 1200px;
   margin: 0 auto;
 }

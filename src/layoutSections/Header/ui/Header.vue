@@ -11,10 +11,14 @@ import { RouterLink } from 'vue-router';
 import AvatarPng from "@/shared/assets/images/avatar.png";
 
 
+
 const userMenu = reactive({
   avatar: AvatarPng,
   name: "Алексей",
-  menu: []
+  menu: [
+    { label: "Профиль", link: "/profile" },
+    { label: "Выход", action: "logout" },
+  ]
 })
 
 </script>
@@ -30,25 +34,25 @@ const userMenu = reactive({
         />
       </RouterLink>
 
-      <div class="header__catatlog">
-        <AppButton
-          color="secondary"
-          leftIcon
-        >
-          <template v-slot:leftIcon>
-            <AppIcon type="menu" />
-          </template>
+      <AppButton
+        class="header__catatlog"
+        color="secondary"
+        leftIcon
+      >
+        <template v-slot:leftIcon>
+          <AppIcon type="menu" />
+        </template>
+        <!-- <AppTypography> -->
           Каталог
-        </AppButton>
-      </div>
+        <!-- </AppTypography> -->
+      </AppButton>
 
-      <div class="header__search">
-        <AppSearch />
-      </div>
-
+      <AppSearch class="header__search" />
       <Nav />
-
-      <UserMenu :data="userMenu" />
+      <UserMenu
+        class="header__user-menu"
+        :data="userMenu"
+      />
 
     </AppContainer>
 
@@ -72,10 +76,14 @@ vte
   display: flex;
   align-items: center;
   height: 72px;
-  gap: 40px;
+  gap: 20px;
 }
 
 .header__catatlog {
   width: 140px;
+}
+
+.header__user-menu {
+  width: 217px;
 }
 </style>

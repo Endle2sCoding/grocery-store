@@ -11,39 +11,40 @@ const { tagName = "p" } = defineProps<Props>()
 <template>
   <component
     :is="tagName"
-    :class="['typography', size ? `size_${size}` : '', bold ? 'bold' : '', `tag_${tagName}`]"
+    :class="['app-typography', size ? `size_${size}` : '', bold ? 'bold' : '', `tag_${tagName}`]"
   >
     <slot></slot>
   </component>
 </template>
 
 <style scoped>
-.typography {
+.app-typography {
   line-height: 150%;
   font-style: normal;
+  color: var(--main-on-surface);
 }
 
 .bold {
   font-weight: 700;
 }
 
-.typography.size_xs {
+.app-typography.size_xs {
   font-size: 12px;
 }
 
-.typography.size_s {
+.app-typography.size_s {
   font-size: 16px;
 }
 
-.typography.size_m {
+.app-typography.size_m {
   font-size: 18px;
 }
 
-.typography.size_l {
+.app-typography.size_l {
   font-size: 24px;
 }
 
-.typography.size_xl {
+.app-typography.size_xl {
   font-size: 36px;
 }
 
@@ -76,23 +77,23 @@ const { tagName = "p" } = defineProps<Props>()
 }
 
 @media screen and (max-width: 768px) {
-  .typography.size_xs {
+  .app-typography.size_xs {
     font-size: 8px;
   }
 
-  .typography.size_s {
+  .app-typography.size_s {
     font-size: 12px;
   }
 
-  .typography.size_m {
+  .app-typography.size_m {
     font-size: 14px;
   }
 
-  .typography.size_l {
+  .app-typography.size_l {
     font-size: 20px;
   }
 
-  .typography.size_xl {
+  .app-typography.size_xl {
     font-size: 32px;
   }
 

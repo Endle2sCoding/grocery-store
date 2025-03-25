@@ -6,16 +6,16 @@ interface Props {
 const { src } = defineProps<Props>();
 </script>
 <template>
-  <div class="appAvatar">
+  <div class="app-avatar">
     <img
-      class="avatar__img"
+      class="app-avatar__img"
       :src="src"
       alt="avatar"
     >
   </div>
 </template>
 <style scoped>
-.appAvatar {
+.app-avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -23,7 +23,7 @@ const { src } = defineProps<Props>();
   background: lightgray;
 }
 
-.avatar__img {
+.app-avatar__img {
   width: 100%;
   height: 100%;
   object-fit: cover;

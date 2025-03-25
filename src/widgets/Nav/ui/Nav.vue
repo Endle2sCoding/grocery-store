@@ -18,7 +18,7 @@ const navItems = reactive([
         v-for="item in navItems"
       >
         <RouterLink
-          :to="item.link "
+          :to="item.link"
           class="nav__link"
         >
           <AppIcon
@@ -56,7 +56,7 @@ const navItems = reactive([
   align-items: center;
   justify-content: center;
   gap: 8px;
-  color: var(--main-on-surface);
+
 }
 
 .nav__link-icon {

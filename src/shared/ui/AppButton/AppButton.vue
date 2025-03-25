@@ -21,7 +21,7 @@ const {
 <template>
   <button
     :class="[
-      'appButton',
+      'app-button',
       `size_${size}`,
       `decoration_${decoration}`,
       `color_${color}`
@@ -42,7 +42,7 @@ const {
 </template>
 
 <style scoped>
-.appButton {
+.app-button {
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -56,17 +56,17 @@ const {
   text-align: center;
 }
 
-.appButton.size_s {
+.app-button.size_s {
   padding: 8px;
   gap: 8px;
 }
 
-.appButton.size_m {
+.app-button.size_m {
   padding: 8px;
   gap: 8px;
 }
 
-.appButton.size_l {
+.app-button.size_l {
   padding: 16px;
   gap: 8px;
 }
@@ -76,12 +76,12 @@ const {
   color: var(--main-on-secondary)
 }
 
-.appButton.decoration_none {
+.app-button.decoration_none {
   background-color: unset;
   border-color: unset;
 }
 
-.appButton.decoration_none:deep(path) {
+.app-button.decoration_none:deep(path) {
   fill: var(--main-on-surface)
 }
 </style>

@@ -21,7 +21,7 @@ const slots = useSlots();
 </script>
 <template>
   <div :class="[
-    'field',
+    'app-field',
     `disabled_${disabled}`,
     `size_${size}`,
     `left-icon_${Boolean(slots.leftIcon)}`,
@@ -29,13 +29,13 @@ const slots = useSlots();
   ]">
     <slot
       v-if="slots.label"
-      class="field__label"
+      class="app-field__label"
       name="label"
     ></slot>
-    <div class="field__container">
+    <div class="app-field__container">
       <div
         v-if="slots.leftIcon"
-        class="field__left-icon"
+        class="app-field__left-icon"
         @click="onSubmit"
       >
         <slot name="leftIcon"></slot>
@@ -44,13 +44,13 @@ const slots = useSlots();
         @input="(e: Event) => onChange?.((e.target as HTMLInputElement).value)"
         @keyup.enter="onSubmit"
         :disabled="disabled"
-        :class="['field__input', `size_${size}`]"
+        :class="['app-field__input', `size_${size}`]"
         :placeholder="placeholder"
         type="text"
       />
       <div
         v-if="slots.rightIcon"
-        class="field__right-icon"
+        class="app-field__right-icon"
         @click="onSubmit"
       >
         <slot name="rightIcon"></slot>
@@ -60,22 +60,22 @@ const slots = useSlots();
 
 </template>
 <style scoped>
-.field:deep(.typography) {
+.app-field:deep(.typography) {
   color: var(--grayscale-hard);
 }
 
-.field__container {
+.app-field__container {
   position: relative;
 }
 
-.field__left-icon,
-.field__right-icon {
+.app-field__left-icon,
+.app-field__right-icon {
   position: absolute;
   cursor: pointer;
 }
 
 
-.field__input {
+.app-field__input {
   width: 100%;
   border-radius: 4px;
   border: 1px solid var(--grayscale-light);
@@ -83,67 +83,67 @@ const slots = useSlots();
   color: var(--main-on-surface);
 }
 
-.field__input:focus {
+.app-field__input:focus {
   border: 1px solid var(--main-secondary);
   caret-color: var(--main-secondary);
   box-shadow: var(--shadow-secondary-m);
   transition: all ease-in-out .3s;
 }
 
-.field__input ::placeholder {
+.app-field__input ::placeholder {
   color: var(--grayscale-hard);
 }
 
-.field__input:disabled {
+.app-field__input:disabled {
   border: 1px solid var(--grayscale-light);
   background: var(--grayscale-light);
 }
 
-.field.size_m .field__input {
+.app-field.size_m .app-field__input {
   padding: 8px 16px;
   font-size: 16px;
 }
 
-.field.size_l .field__input {
+.app-field.size_l .app-field__input {
   padding: 12px 16px;
   font-size: 24px;
 }
 
-.field.left-icon_true.size_m .field__left-icon {
+.app-field.left-icon_true.size_m .app-field__left-icon {
   top: 8px;
   left: 8px;
 }
 
-.field.left-icon_true.size_m .field__input {
+.app-field.left-icon_true.size_m .app-field__input {
   padding-left: 40px;
 }
 
-.field.right-icon_true.size_m .field__right-icon {
+.app-field.right-icon_true.size_m .app-field__right-icon {
   top: 8px;
   right: 8px;
 }
 
-.field.right-icon_true.size_m .field__input {
+.app-field.right-icon_true.size_m .app-field__input {
   padding-right: 40px;
 }
 
-.field.left-icon_true.size_l .field__left-icon {
+.app-field.left-icon_true.size_l .app-field__left-icon {
   top: 8px;
   left: 8px;
   padding: 6px;
 }
 
-.field.left-icon_true.size_l .field__input {
+.app-field.left-icon_true.size_l .app-field__input {
   padding-left: 56px;
 }
 
-.field.right-icon_true.size_l .field__right-icon {
+.app-field.right-icon_true.size_l .app-field__right-icon {
   top: 8px;
   right: 8px;
   padding: 6px;
 }
 
-.field.right-icon_true.size_l .field__input {
+.app-field.right-icon_true.size_l .app-field__input {
   padding-right: 56px;
 }
 </style>
