@@ -6,15 +6,20 @@ import AppContainer from '@/shared/ui/AppContainer/AppContainer.vue';
 import AppIcon from '@/shared/ui/AppIcon/AppIcon.vue';
 import AppLogo from '@/shared/ui/AppLogo/AppLogo.vue';
 import { Nav } from '@/widgets/Nav';
-import { reactive } from 'vue';
+import { computed, reactive } from 'vue';
 import { RouterLink } from 'vue-router';
 import AvatarPng from "@/shared/assets/images/avatar.png";
+import { usePersonStore } from '@/entities/Person';
 
 
+const personStore = usePersonStore();
+console.log(personStore);
+const person = computed(() => personStore.person);
+const isAuth = computed(() => personStore.isAuth);
 
 const userMenu = reactive({
   avatar: AvatarPng,
-  name: "Алексей",
+  name: person.value.name,
   menu: [
     { label: "Профиль", link: "/profile" },
     { label: "Выход", action: "logout" },
@@ -43,7 +48,7 @@ const userMenu = reactive({
           <AppIcon type="menu" />
         </template>
         <!-- <AppTypography> -->
-          Каталог
+        Каталог
         <!-- </AppTypography> -->
       </AppButton>
 
@@ -53,6 +58,7 @@ const userMenu = reactive({
         class="header__user-menu"
         :data="userMenu"
       />
+      <!-- <AppButton v-else>Log in</AppButton> -->
 
     </AppContainer>
 

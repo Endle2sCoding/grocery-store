@@ -6,6 +6,7 @@ import AppIcon from '@/shared/ui/AppIcon/AppIcon.vue';
 import AppTypography from '@/shared/ui/AppTypography/AppTypography.vue';
 import { ref } from 'vue';
 
+
 interface Props {
   data: {
     avatar: string;
@@ -16,7 +17,7 @@ interface Props {
 const { data } = defineProps<Props>();
 const { avatar, name } = data;
 
-const isOpen = ref<boolean>(true);
+const isOpen = ref<boolean>(false);
 const toggleMenu = () => {
   isOpen.value = !isOpen.value;
 };
