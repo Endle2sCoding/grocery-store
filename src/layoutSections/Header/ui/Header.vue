@@ -6,16 +6,15 @@ import AppContainer from '@/shared/ui/AppContainer/AppContainer.vue';
 import AppIcon from '@/shared/ui/AppIcon/AppIcon.vue';
 import AppLogo from '@/shared/ui/AppLogo/AppLogo.vue';
 import { Nav } from '@/widgets/Nav';
-import { computed, reactive } from 'vue';
+import {  reactive } from 'vue';
 import { RouterLink } from 'vue-router';
 import AvatarPng from "@/shared/assets/images/avatar.png";
 import { usePersonStore } from '@/entities/Person';
+import { storeToRefs } from 'pinia';
+const personStore=usePersonStore()
 
-
-const personStore = usePersonStore();
-console.log(personStore);
-const person = computed(() => personStore.person);
-const isAuth = computed(() => personStore.isAuth);
+const {person, isAuth }=storeToRefs(personStore)
+const {setIsAuth}=personStore
 
 const userMenu = reactive({
   avatar: AvatarPng,
@@ -55,17 +54,26 @@ const userMenu = reactive({
       <AppSearch class="header__search" />
       <Nav />
       <UserMenu
-        class="header__user-menu"
-        :data="userMenu"
+      v-if="isAuth"
+      :data="userMenu"
+      class="header__user-menu"
       />
-      <!-- <AppButton v-else>Log in</AppButton> -->
-
+      <AppButton
+      v-else
+      style="{{ width:'217px' }}"
+      class="header__login"
+      @click="()=>setIsAuth(true)"
+      >
+      Войти
+      <template v-slot:rightIcon>
+        <AppIcon type="login" />
+      </template>
+    </AppButton>
     </AppContainer>
-
 
   </header>
 </template>
-vte
+
 
 <style scoped>
 .header {
@@ -91,5 +99,8 @@ vte
 
 .header__user-menu {
   width: 217px;
+}
+.header__login {
+  width: 167px;
 }
 </style>

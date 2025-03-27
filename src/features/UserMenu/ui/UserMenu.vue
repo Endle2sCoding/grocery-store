@@ -1,5 +1,6 @@
 vtemm
 <script lang="ts" setup>
+import { usePersonStore } from '@/entities/Person';
 import AppAvatar from '@/shared/ui/AppAvatar/AppAvatar.vue';
 import AppButton from '@/shared/ui/AppButton/AppButton.vue';
 import AppIcon from '@/shared/ui/AppIcon/AppIcon.vue';
@@ -14,6 +15,8 @@ interface Props {
     menu: { label: string, link?: string, action?: string; }[];
   };
 }
+const { setIsAuth }=usePersonStore()
+
 const { data } = defineProps<Props>();
 const { avatar, name } = data;
 
@@ -23,7 +26,9 @@ const toggleMenu = () => {
 };
 const onClickItem = (action: string) => {
   console.log("user-menu onClickItem action", action);
-
+  if(action==="logout") {
+    setIsAuth(false)
+  }
 };
 </script>
 <template>
@@ -43,6 +48,7 @@ const onClickItem = (action: string) => {
       <AppButton
         class="user-manu__button"
         decoration="none"
+        color="clear"
         @click="toggleMenu"
       >
         <AppIcon
