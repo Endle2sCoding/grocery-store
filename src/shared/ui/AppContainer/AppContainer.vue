@@ -7,7 +7,8 @@
 </template>
 <style scoped>
 .app-container {
-  width: 1200px;
+  max-width: 1200px;
+  padding: 0 15px;
   margin: 0 auto;
 }
 </style>
