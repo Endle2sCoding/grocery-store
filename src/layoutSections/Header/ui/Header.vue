@@ -12,6 +12,7 @@ import AvatarPng from "@/shared/assets/images/avatar.png";
 import { usePersonStore } from '@/entities/Person';
 import { storeToRefs } from 'pinia';
 import DropdownMenu from '@/widgets/DropdownMenu/ui/DropdownMenu.vue';
+import { useScreenStore } from '@/entities/Screen';
 
 const personStore = usePersonStore();
 const { person, isAuth } = storeToRefs(personStore);
@@ -30,6 +31,8 @@ const dropdownIsShow = ref<boolean>(false);
 
 const toggleDropdownIsShow = () => dropdownIsShow.value = !dropdownIsShow.value;
 
+const { platformWidth } = storeToRefs(useScreenStore());
+
 </script>
 <template>
   <header class="header">
@@ -39,8 +42,8 @@ const toggleDropdownIsShow = () => dropdownIsShow.value = !dropdownIsShow.value;
           <AppLogo
             orientation="horizontal"
             colorful
-            withText
             bgColor="white"
+            :withText="platformWidth === 'desctop'"
           />
         </RouterLink>
 
@@ -96,7 +99,6 @@ const toggleDropdownIsShow = () => dropdownIsShow.value = !dropdownIsShow.value;
 }
 
 .header__contetnt {
-  width: 100%;
   background: var(--main-surface);
   box-shadow: var(--shadow-default-s);
   position: relative;
@@ -104,14 +106,16 @@ const toggleDropdownIsShow = () => dropdownIsShow.value = !dropdownIsShow.value;
 }
 
 .container {
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 72px;
   gap: 20px;
 }
 
 .header__catatlog {
-  width: 140px;
+  max-width: 120px;
 }
 
 .header__user-menu {
@@ -120,5 +124,33 @@ const toggleDropdownIsShow = () => dropdownIsShow.value = !dropdownIsShow.value;
 
 .header__login {
   width: 167px;
+}
+
+@media screen and (max-width: 1200px) {
+
+  .header__login:deep(.app-typography),
+  .header__catatlog:deep(.app-typography) {
+    display: none;
+    pointer-events: none;
+  }
+
+  .header__login {
+    width: max-content;
+  }
+
+  .header__catatlog {
+    width: max-content;
+  }
+
+  .header__user-menu {
+    min-width: 120px;
+    width: fit-content;
+  }
+
+  .header__search {
+    max-width: 324px;
+  }
+
+
 }
 </style>

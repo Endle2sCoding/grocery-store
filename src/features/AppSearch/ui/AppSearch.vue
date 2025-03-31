@@ -20,9 +20,6 @@ const onSearch = () => {
     <template #rightIcon>
       <AppIcon type="search" />
     </template>
-    <template #leftIcon>
-      <AppIcon type="search" />
-    </template>
   </AppField>
 
 

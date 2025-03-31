@@ -15,7 +15,7 @@ interface Props {
     menu: { label: string, link?: string, action?: string; }[];
   };
 }
-const { setIsAuth }=usePersonStore()
+const { setIsAuth } = usePersonStore();
 
 const { data } = defineProps<Props>();
 const { avatar, name } = data;
@@ -26,8 +26,8 @@ const toggleMenu = () => {
 };
 const onClickItem = (action: string) => {
   console.log("user-menu onClickItem action", action);
-  if(action==="logout") {
-    setIsAuth(false)
+  if (action === "logout") {
+    setIsAuth(false);
   }
 };
 </script>
@@ -46,7 +46,7 @@ const onClickItem = (action: string) => {
         @click="toggleMenu"
       >{{ name }}</AppTypography>
       <AppButton
-        class="user-manu__button"
+        class="user-menu__button"
         decoration="none"
         color="clear"
         @click="toggleMenu"
@@ -58,7 +58,7 @@ const onClickItem = (action: string) => {
       </AppButton>
       <ul
         v-if="isOpen === true"
-        class="user-manu__list"
+        class="user-menu__list"
       >
         <li
           v-for="item in data.menu"
@@ -101,7 +101,6 @@ const onClickItem = (action: string) => {
   position: relative;
   height: 100%;
   z-index: 0;
-
 }
 
 .user-menu {
@@ -118,22 +117,19 @@ const onClickItem = (action: string) => {
 
 .user-menu__avatar,
 .user-menu__name,
-.user-manu__button {
+.user-menu__button {
   cursor: pointer;
 }
 
-
-.user-manu__list {
+.user-menu__list {
   display: grid;
   gap: 10px;
   grid-column: 1 / 4;
   width: 100%;
-  padding-top: 10px;
 }
 
 
-.is-open_true,
-.user-manu {
+.is-open_true.user-menu {
   background-color: var(--main-surface);
   box-shadow: var(--shadow-default-s);
   border-radius: 4px;
@@ -145,9 +141,23 @@ const onClickItem = (action: string) => {
   cursor: pointer;
 }
 
+.chevron {
 
+  margin: 0 auto;
+}
 
 .is-open_true .chevron {
   transform: rotate(180deg);
+}
+
+@media screen and (max-width: 1200px) {
+  .user-menu {
+    grid-template-columns: 1fr;
+  }
+
+  .user-menu__name,
+  .user-menu__button {
+    display: none;
+  }
 }
 </style>

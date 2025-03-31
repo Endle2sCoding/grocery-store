@@ -53,6 +53,7 @@ a {
   --shadow-secondary-xl: 16px 32px 64px 0px rgba(112, 192, 91, 0.20);
 
   /* platform */
-  --tablet: 1207px;
+  --tablet: 1200px;
   --mobile: 767px;
+
 }

@@ -3,7 +3,7 @@ import { useSlots } from 'vue';
 import AppTypography from '../AppTypography/AppTypography.vue';
 
 interface Props {
-  color?: "primary" | "secondary" | "grayscale" | "error"| "clear";
+  color?: "primary" | "secondary" | "grayscale" | "error" | "clear";
   decoration?: "default" | "outlined" | "none";
   size?: "l" | "m" | "s";
   disabled?: boolean;
@@ -28,7 +28,10 @@ const {
     ]"
     :disabled="disabled"
   >
-    <slot name="leftIcon"></slot>
+    <slot
+      v-if="slots.leftIcon"
+      name="leftIcon"
+    ></slot>
     <AppTypography
       v-if="slots.default"
       :class="['button_text', `color_${color}`]"
@@ -37,7 +40,10 @@ const {
     >
       <slot></slot>
     </AppTypography>
-    <slot name="rightIcon"></slot>
+    <slot
+      v-if="slots.rightIcon"
+      name="rightIcon"
+    ></slot>
   </button>
 </template>
 
@@ -72,8 +78,8 @@ const {
 }
 
 .color_primary {
- background:var(--main-primary);
- color: var(--main-on-secondary);
+  background: var(--main-primary);
+  color: var(--main-on-secondary);
 }
 
 .color_secondary {
