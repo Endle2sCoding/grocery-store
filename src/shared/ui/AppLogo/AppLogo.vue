@@ -214,5 +214,5 @@ const optional3 = computed(() => orientation === "horizontal" && colorful && bgC
   height: 165px;
 }
 
-@media screen and (max-width: 1200px) {}
+
 </style>

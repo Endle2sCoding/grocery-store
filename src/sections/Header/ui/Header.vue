@@ -38,7 +38,11 @@ const { platformWidth } = storeToRefs(useScreenStore());
   <header class="header">
     <div class="header__contetnt">
       <AppContainer class="container">
-        <RouterLink to="/">
+
+        <RouterLink
+          to="/"
+          class="header__logo"
+        >
           <AppLogo
             orientation="horizontal"
             colorful
@@ -60,7 +64,7 @@ const { platformWidth } = storeToRefs(useScreenStore());
         </AppButton>
 
         <AppSearch class="header__search" />
-        <Nav />
+        <Nav class="header__nav" />
         <UserMenu
           v-if="isAuth"
           :data="userMenu"
@@ -76,6 +80,7 @@ const { platformWidth } = storeToRefs(useScreenStore());
             <AppIcon type="login" />
           </template>
         </AppButton>
+
       </AppContainer>
     </div>
     <DropdownMenu
@@ -150,7 +155,23 @@ const { platformWidth } = storeToRefs(useScreenStore());
   .header__search {
     max-width: 324px;
   }
+}
 
+@media screen and (max-width: 767px) {
 
+  .header__catatlog,
+  .header__nav,
+  .header__user-menu {
+    display: none;
+  }
+
+  .header__logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .header__logo:deep(svg) {
+    width: 39px;
+  }
 }
 </style>

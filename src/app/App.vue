@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useScreenStore } from '@/entities/Screen';
-import { Header } from '@/layoutSections/Header';
+import { BottomNav } from '@/sections/BottomNav';
+import { Header } from '@/sections/Header';
 import { onMounted, onUnmounted } from 'vue';
 
 const { setPlatformWidth } = useScreenStore();
@@ -19,4 +20,5 @@ onUnmounted(() => {
 <template>
   <Header />
   <RouterView />
+  <BottomNav />
 </template>

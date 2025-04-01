@@ -13,8 +13,8 @@
 }
 
 @media screen and (max-width: 1200px) {
-  /* .app-container {
-    max-width: var(--mobile);
-  } */
+  .app-container {
+    padding: 0 15px;
+  }
 }
 </style>

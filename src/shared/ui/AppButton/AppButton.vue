@@ -87,12 +87,17 @@ const {
   color: var(--main-on-secondary)
 }
 
+.color_clear {
+  background: none;
+}
+
 .app-button.decoration_none {
   background-color: unset;
   border-color: unset;
 }
 
 .app-button.decoration_none:deep(path) {
-  fill: var(--main-on-surface)
+  fill: var(--main-on-surface);
+
 }
 </style>

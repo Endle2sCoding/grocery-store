@@ -5,7 +5,6 @@ import AppTypography from '@/shared/ui/AppTypography/AppTypography.vue';
 
 const catalogStore = useCatalogStore();
 const { catalogSections } = catalogStore;
-console.log(catalogStore);
 
 </script>
 

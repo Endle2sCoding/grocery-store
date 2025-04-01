@@ -56,4 +56,6 @@ a {
   --tablet: 1200px;
   --mobile: 767px;
 
+  /* sizes */
+  --footer-height: 56px;
 }
