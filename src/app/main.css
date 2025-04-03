@@ -57,5 +57,6 @@ a {
   --mobile: 767px;
 
   /* sizes */
-  --footer-height: 56px;
+  --bottom-nav-height: 56px;
+  --header-height: 72px
 }

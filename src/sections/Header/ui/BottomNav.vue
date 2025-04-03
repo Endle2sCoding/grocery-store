@@ -28,7 +28,7 @@ const toggleDropdownIsShow = () => dropdownIsShow.value = !dropdownIsShow.value;
 </script>
 <template>
   <AppContainer class="bottomNav">
-    <DropdownMenu
+    <!-- <DropdownMenu
       @mouseleave="toggleDropdownIsShow"
       v-if="dropdownIsShow"
     />
@@ -42,10 +42,10 @@ const toggleDropdownIsShow = () => dropdownIsShow.value = !dropdownIsShow.value;
       <template v-slot:leftIcon>
         <AppIcon type="menu" />
       </template>
-    </AppButton>
-    <Nav />
+</AppButton>
+<Nav />
 
-
+-->
 
     <UserMenu
       v-if="isAuth"
@@ -70,11 +70,10 @@ const toggleDropdownIsShow = () => dropdownIsShow.value = !dropdownIsShow.value;
   position: fixed;
   bottom: 0;
   left: 0;
-  right: 0;
-
-  display: flex;
+  width: 100%;
+  display: grid;
   align-items: center;
-  justify-content: space-between;
+  height: var(--bottom-nav-height);
 
   background: var(--main-surface);
   box-shadow: var(--shadow-default-s);

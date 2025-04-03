@@ -13,6 +13,7 @@ import { usePersonStore } from '@/entities/Person';
 import { storeToRefs } from 'pinia';
 import DropdownMenu from '@/widgets/DropdownMenu/ui/DropdownMenu.vue';
 import { useScreenStore } from '@/entities/Screen';
+import BottomNav from './BottomNav.vue';
 
 const personStore = usePersonStore();
 const { person, isAuth } = storeToRefs(personStore);
@@ -27,7 +28,7 @@ const userMenu = reactive({
   ]
 });
 
-const dropdownIsShow = ref<boolean>(false);
+const dropdownIsShow = ref(false);
 
 const toggleDropdownIsShow = () => dropdownIsShow.value = !dropdownIsShow.value;
 
@@ -80,14 +81,13 @@ const { platformWidth } = storeToRefs(useScreenStore());
             <AppIcon type="login" />
           </template>
         </AppButton>
-
       </AppContainer>
     </div>
     <DropdownMenu
       @mouseleave="toggleDropdownIsShow"
       v-if="dropdownIsShow"
     />
-
+    <BottomNav />
   </header>
 </template>
 
@@ -115,7 +115,7 @@ const { platformWidth } = storeToRefs(useScreenStore());
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  height: var(--header-height);
   gap: 20px;
 }
 
