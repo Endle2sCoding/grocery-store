@@ -8,7 +8,6 @@ import AppLogo from '@/shared/ui/AppLogo/AppLogo.vue';
 import { Nav } from '@/widgets/Nav';
 import { reactive, ref } from 'vue';
 import { RouterLink } from 'vue-router';
-import AvatarPng from "@/shared/assets/images/avatar.png";
 import { usePersonStore } from '@/entities/Person';
 import { storeToRefs } from 'pinia';
 import DropdownMenu from '@/widgets/DropdownMenu/ui/DropdownMenu.vue';
@@ -20,7 +19,7 @@ const { person, isAuth } = storeToRefs(personStore);
 const { setIsAuth } = personStore;
 
 const userMenu = reactive({
-  avatar: AvatarPng,
+  avatar: person.value.avatar,
   name: person.value.name,
   menu: [
     { label: "Профиль", link: "/profile" },

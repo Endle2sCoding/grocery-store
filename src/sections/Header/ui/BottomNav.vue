@@ -1,21 +1,19 @@
 <script lang="ts" setup>
 import AppContainer from '@/shared/ui/AppContainer/AppContainer.vue';
-import { DropdownMenu } from '@/widgets/DropdownMenu';
-import { Nav } from '@/widgets/Nav';
 import { reactive, ref } from 'vue';
-import AvatarPng from "@/shared/assets/images/avatar.png";
 import { usePersonStore } from '@/entities/Person';
 import { storeToRefs } from 'pinia';
 import { UserMenu } from '@/features/UserMenu';
 import AppButton from '@/shared/ui/AppButton/AppButton.vue';
 import AppIcon from '@/shared/ui/AppIcon/AppIcon.vue';
+import { Nav } from '@/widgets/Nav';
 
 const personStore = usePersonStore();
 const { person, isAuth } = storeToRefs(personStore);
 const { setIsAuth } = personStore;
 
 const userMenu = reactive({
-  avatar: AvatarPng,
+  avatar: person.value.avatar,
   name: person.value.name,
   menu: [
     { label: "Профиль", link: "/profile" },
@@ -27,60 +25,55 @@ const toggleDropdownIsShow = () => dropdownIsShow.value = !dropdownIsShow.value;
 
 </script>
 <template>
-  <AppContainer class="bottomNav">
-    <!-- <DropdownMenu
-      @mouseleave="toggleDropdownIsShow"
-      v-if="dropdownIsShow"
-    />
+  <div class="bottomNav">
+    <AppContainer class="container">
+      <AppButton
+        decoration="none"
+        @mouseenter="toggleDropdownIsShow"
+      >
+        <template v-slot:leftIcon>
+          <AppIcon type="menu" />
+        </template>
+      </AppButton>
 
-    <AppButton
-      class="footer__catatlog"
-      decoration="none"
-      leftIcon
-      @mouseenter="toggleDropdownIsShow"
-    >
-      <template v-slot:leftIcon>
-        <AppIcon type="menu" />
-      </template>
-</AppButton>
-<Nav />
+      <Nav />
+      <UserMenu
+        v-if="isAuth"
+        :data="userMenu"
+        class=""
+      />
+      <AppButton
+        v-if="!isAuth"
+        class=""
+        @click="() => setIsAuth(true)"
+      >
+        Войти
+        <template v-slot:rightIcon>
+          <AppIcon type="login" />
+        </template>
+      </AppButton>
 
--->
-
-    <UserMenu
-      v-if="isAuth"
-      :data="userMenu"
-      class=""
-    />
-    <AppButton
-      v-else
-      class=""
-      @click="() => setIsAuth(true)"
-    >
-      Войти
-      <template v-slot:rightIcon>
-        <AppIcon type="login" />
-      </template>
-    </AppButton>
-
-  </AppContainer>
+    </AppContainer>
+  </div>
 </template>
 <style scoped>
 .bottomNav {
   position: fixed;
-  bottom: 0;
+  bottom: 100px;
   left: 0;
-  width: 100%;
+  right: 0;
   display: grid;
   align-items: center;
-  height: var(--bottom-nav-height);
+  min-height: var(--bottom-nav-height);
 
   background: var(--main-surface);
   box-shadow: var(--shadow-default-s);
-  min-height: var(--footer-height);
 }
 
-.footer__catatlog {
-  width: 40px;
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 </style>

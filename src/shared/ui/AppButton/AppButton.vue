@@ -54,7 +54,6 @@ const {
   cursor: pointer;
   border: none;
   border-radius: 4px;
-  width: 100%;
 }
 
 .button_text {

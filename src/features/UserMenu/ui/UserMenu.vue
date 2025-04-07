@@ -98,18 +98,18 @@ const onClickItem = (action: string) => {
 </template>
 <style scoped>
 .user-menu__wrapper {
-  position: relative;
   height: 100%;
   z-index: 0;
 }
 
 .user-menu {
-  position: absolute;
   display: grid;
   grid-template-columns: max-content 1fr max-content;
   align-items: center;
   gap: 10px;
   padding: 18px 8px;
+  /* top:50%;
+  transform:translateY(-50%); */
   width: 100%;
   z-index: 1;
 
