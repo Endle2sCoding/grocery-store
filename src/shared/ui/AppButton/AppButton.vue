@@ -5,7 +5,7 @@ import AppTypography from '../AppTypography/AppTypography.vue';
 interface Props {
   color?: "primary" | "secondary" | "grayscale" | "error" | "clear";
   decoration?: "default" | "outlined" | "none";
-  size?: "l" | "m" | "s";
+  size?: "l" | "m" | "s" | "xs";
   disabled?: boolean;
 }
 const slots = useSlots();
@@ -57,8 +57,12 @@ const {
 }
 
 .button_text {
-  width: 100%;
   text-align: center;
+}
+
+.app-button.size_xs {
+  padding: 4px;
+  gap: 4px;
 }
 
 .app-button.size_s {

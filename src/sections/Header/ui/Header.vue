@@ -122,53 +122,37 @@ const { platformWidth } = storeToRefs(useScreenStore());
   max-width: 120px;
 }
 
-.header__user-menu {
-  width: 217px;
-}
-
 .header__login {
   width: 167px;
 }
 
 @media screen and (max-width: 1200px) {
-
   .header__login:deep(.app-typography),
   .header__catatlog:deep(.app-typography) {
     display: none;
     pointer-events: none;
   }
-
   .header__login {
     width: max-content;
   }
-
   .header__catatlog {
     width: max-content;
   }
-
-  .header__user-menu {
-    min-width: 120px;
-    width: fit-content;
-  }
-
   .header__search {
     max-width: 324px;
   }
 }
 
 @media screen and (max-width: 767px) {
-
   .header__catatlog,
   .header__nav,
   .header__user-menu {
     display: none;
   }
-
   .header__logo {
     display: flex;
     align-items: center;
   }
-
   .header__logo:deep(svg) {
     width: 39px;
   }

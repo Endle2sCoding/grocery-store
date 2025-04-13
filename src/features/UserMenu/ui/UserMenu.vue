@@ -100,6 +100,7 @@ const onClickItem = (action: string) => {
 .user-menu__wrapper {
   height: 100%;
   z-index: 0;
+  width: 217px;
 }
 
 .user-menu {
@@ -108,17 +109,20 @@ const onClickItem = (action: string) => {
   align-items: center;
   gap: 10px;
   padding: 18px 8px;
-  /* top:50%;
-  transform:translateY(-50%); */
   width: 100%;
   z-index: 1;
-
 }
 
 .user-menu__avatar,
 .user-menu__name,
 .user-menu__button {
   cursor: pointer;
+}
+
+.user-menu__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .user-menu__list {
@@ -142,7 +146,6 @@ const onClickItem = (action: string) => {
 }
 
 .chevron {
-
   margin: 0 auto;
 }
 
@@ -151,6 +154,10 @@ const onClickItem = (action: string) => {
 }
 
 @media screen and (max-width: 1200px) {
+  .user-menu__wrapper {
+    width: 150px;
+  }
+
   .user-menu {
     grid-template-columns: 1fr;
   }
@@ -158,6 +165,34 @@ const onClickItem = (action: string) => {
   .user-menu__name,
   .user-menu__button {
     display: none;
+  }
+
+
+  @media screen and (max-width: 767px) {
+    .user-menu__wrapper {
+      position: relative;
+      width: 56px;
+      min-height: 76px;
+    }
+
+    .user-menu.is-open_true {
+      position: absolute;
+      top: -94px;
+      left: -95px;
+      width: 150px;
+    }
+
+    .user-menu {
+      transform: rotate(180deg);
+    }
+
+    .user-menu__list {
+      transform: rotate(180deg);
+    }
+
+    .user-menu__avatar {
+      transform: rotate(180deg);
+    }
   }
 }
 </style>
