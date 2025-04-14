@@ -101,12 +101,12 @@ const navItems = reactive([
 </template>
 <style scoped>
 .bottom-nav {
+  display: none;
   position: fixed;
   transform: rotate(180deg);
-  bottom:0;
+  bottom: 0;
   left: 0;
   right: 0;
-  display: flex;
   align-items: center;
   min-height: var(--bottom-nav-height);
   background: var(--main-surface);
@@ -125,10 +125,28 @@ const navItems = reactive([
 }
 
 .link__item {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 4px;
+}
+
+.nav__link-count {
+  position: absolute;
+  top: -6px;
+  right: 0px;
+  padding: 1px 6px;
+  color: var(--main-on-primary);
+  background: var(--main-primary);
+  border-radius: 4px;
+  font-size: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .bottom-nav {
+    display: flex;
+  }
 }
 </style>

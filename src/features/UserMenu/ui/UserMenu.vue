@@ -156,10 +156,27 @@ const onClickItem = (action: string) => {
 @media screen and (max-width: 1200px) {
   .user-menu__wrapper {
     width: 150px;
+    position: relative;
+    width: 56px;
+    min-height: 76px;
   }
+
+  .user-menu.is-open_true {
+    position: absolute;
+    top: 0;
+    left: -74px;
+    width: 150px;
+  }
+
 
   .user-menu {
     grid-template-columns: 1fr;
+
+  }
+
+
+  .user-menu__avatar {
+    margin-left: auto;
   }
 
   .user-menu__name,
@@ -169,6 +186,8 @@ const onClickItem = (action: string) => {
 
 
   @media screen and (max-width: 767px) {
+
+
     .user-menu__wrapper {
       position: relative;
       width: 56px;
@@ -177,9 +196,10 @@ const onClickItem = (action: string) => {
 
     .user-menu.is-open_true {
       position: absolute;
-      top: -94px;
-      left: -95px;
+      top: -119px;
+      left: -74px;
       width: 150px;
+      z-index: 1;
     }
 
     .user-menu {
@@ -192,6 +212,13 @@ const onClickItem = (action: string) => {
 
     .user-menu__avatar {
       transform: rotate(180deg);
+    }
+
+    .is-open_true>>>.user-menu__avatar {
+      position: absolute;
+      top: -57px;
+      left: 28px;
+
     }
   }
 }

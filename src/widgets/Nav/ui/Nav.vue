@@ -31,12 +31,13 @@ const navItems = reactive([
           >
             {{ item.label }}
           </AppTypography>
-          <span
+          <AppTypography
+            tag-name="span"
             v-if="item.count > 0"
             class="nav__link-count"
           >
             {{ item.count }}
-          </span>
+          </AppTypography>
         </RouterLink>
       </li>
     </ul>
